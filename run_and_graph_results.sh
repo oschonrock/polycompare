@@ -39,5 +39,5 @@ do
 	    ./build/$benchmark --benchmark_format=csv --benchmark_filter=$phase $op
 	done
     fi
-    python ../google_benchmark_plot/plot.py --logx < $csvfile &
+    python google_benchmark_plot/plot.py --logx < $csvfile &
 done
