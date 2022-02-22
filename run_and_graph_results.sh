@@ -39,5 +39,6 @@ do
 	    ./build/$benchmark --benchmark_format=csv --benchmark_filter=$phase $op
 	done
     fi
-    python google_benchmark_plot/plot.py --logx < $csvfile &
+    python google_benchmark_plot/plot.py --title $phase --logx < $csvfile &
+    python google_benchmark_plot/plot.py --title "$phase - relative to vec" -r vec_$phase --logx < $csvfile &
 done
