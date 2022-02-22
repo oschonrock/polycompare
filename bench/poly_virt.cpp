@@ -44,7 +44,7 @@ using triangle      = polygon<3>;
 using quadrilateral = polygon<4>;
 using pentagon      = polygon<5>;
 
-void virt_populate(benchmark::State& state) { // NOLINT complexity
+void virt_populate(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
     for (auto _: state) {
         std::vector<std::unique_ptr<poly>> polys;
@@ -63,7 +63,7 @@ void virt_populate(benchmark::State& state) { // NOLINT complexity
 }
 BENCHMARK(virt_populate)->Range(8, 8 << 15); // NOLINT macro
 
-void virt_iterate(benchmark::State& state) { // NOLINT complexity
+void virt_iterate(benchmark::State& state) {
     std::size_t                        count = static_cast<std::size_t>(state.range(0));
     std::vector<std::unique_ptr<poly>> polys;
     polys.reserve(count * 3);
@@ -86,7 +86,7 @@ void virt_iterate(benchmark::State& state) { // NOLINT complexity
 }
 BENCHMARK(virt_iterate)->Range(8, 8 << 15); // NOLINT macro
 
-void virt_both(benchmark::State& state) { // NOLINT complexity
+void virt_both(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
     for (auto _: state) {
         std::vector<std::unique_ptr<poly>> polys;

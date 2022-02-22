@@ -29,7 +29,7 @@ struct polygon {
 
 using poly = polygon<double>;
 
-void vec_populate(benchmark::State& state) { // NOLINT complexity
+void vec_populate(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
 
     for (auto _: state) {
@@ -45,7 +45,7 @@ void vec_populate(benchmark::State& state) { // NOLINT complexity
 }
 BENCHMARK(vec_populate)->Range(8, 8 << 15); // NOLINT macro
 
-void vec_iterate(benchmark::State& state) { // NOLINT complexity
+void vec_iterate(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
 
     std::vector<poly> polys;
@@ -65,7 +65,7 @@ void vec_iterate(benchmark::State& state) { // NOLINT complexity
 }
 BENCHMARK(vec_iterate)->Range(8, 8 << 15); // NOLINT macro
 
-void vec_both(benchmark::State& state) { // NOLINT complexity
+void vec_both(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
 
     for (auto _: state) {

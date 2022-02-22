@@ -61,7 +61,7 @@ class poly_actions {
     };
 };
 
-void var_populate(benchmark::State& state) { // NOLINT complexity
+void var_populate(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
     for (auto _: state) {
         std::vector<poly> polys;
@@ -77,7 +77,7 @@ void var_populate(benchmark::State& state) { // NOLINT complexity
 
 BENCHMARK(var_populate)->Range(8, 8 << 15); // NOLINT macro
 
-void var_iterate(benchmark::State& state) { // NOLINT complexity
+void var_iterate(benchmark::State& state) {
     std::size_t       count = static_cast<std::size_t>(state.range(0));
     std::vector<poly> polys;
     polys.reserve(count * 3);
@@ -97,7 +97,7 @@ void var_iterate(benchmark::State& state) { // NOLINT complexity
 }
 BENCHMARK(var_iterate)->Range(8, 8 << 15); // NOLINT macro
 
-void var_both(benchmark::State& state) { // NOLINT complexity
+void var_both(benchmark::State& state) {
     std::size_t count = static_cast<std::size_t>(state.range(0));
     for (auto _: state) {
         std::vector<poly> polys;
